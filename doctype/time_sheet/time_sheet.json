@@ -1,0 +1,167 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "TSK.#####",
+ "creation": "2025-07-19 21:21:46.912594",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "project",
+  "customer",
+  "column_break_uvss",
+  "task",
+  "employee",
+  "section_break_uinq",
+  "start_time",
+  "end_time",
+  "paused_time",
+  "column_break_pdhd",
+  "duration",
+  "status",
+  "section_break_qfek",
+  "time_sheets",
+  "note",
+  "section_break_sblb",
+  "task_comment",
+  "attachment_file"
+ ],
+ "fields": [
+  {
+   "default": "Nestor Bird",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_qfek",
+   "fieldtype": "Section Break",
+   "label": "Time Sheets"
+  },
+  {
+   "fieldname": "time_sheets",
+   "fieldtype": "Table",
+   "label": "Time Sheets",
+   "options": "Time Sheets"
+  },
+  {
+   "fetch_from": "project.customer",
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "column_break_uvss",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Small Text",
+   "label": "Note"
+  },
+  {
+   "fieldname": "section_break_sblb",
+   "fieldtype": "Section Break",
+   "label": "Task Comment and Attach File"
+  },
+  {
+   "fieldname": "task_comment",
+   "fieldtype": "Table",
+   "label": "Task Comment",
+   "options": "Task Comment"
+  },
+  {
+   "fieldname": "attachment_file",
+   "fieldtype": "Table",
+   "label": "Attachment File",
+   "options": "Attachment File"
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Link",
+   "label": "Task",
+   "options": "Task",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_uinq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nRunning\nPaused\nCompleted"
+  },
+  {
+   "fieldname": "column_break_pdhd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Data",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "paused_time",
+   "fieldtype": "Int",
+   "label": "Paused Time"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-07-20 22:46:13.950305",
+ "modified_by": "Administrator",
+ "module": "Workbook",
+ "name": "Time Sheet",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "task"
+}

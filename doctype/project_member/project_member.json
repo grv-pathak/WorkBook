@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-07-19 13:50:30.666474",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "project_member",
+  "role"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project Member",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "role",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Role",
+   "options": "Select\nAdmin\nMember\nViewer",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-07-19 13:57:37.271745",
+ "modified_by": "Administrator",
+ "module": "Workbook",
+ "name": "Project Member",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
