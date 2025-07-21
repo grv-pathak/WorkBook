@@ -1,0 +1,72 @@
+{% extends "templates/web.html" %}
+{% block title %}📊 Smart Task & Time Dashboard{% endblock %}
+
+{% block page_content %}
+<style>
+  .glass-card {
+    @apply bg-white/30 backdrop-blur-md border border-white/20 shadow-xl rounded-2xl p-6 transition duration-300 transform hover:scale-105 hover:shadow-2xl;
+  }
+  .glass-card:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+</style>
+
+<div class="min-h-screen bg-gradient-to-tr from-blue-100 via-white to-purple-200 px-4 py-10">
+  <h1 class="text-5xl font-extrabold text-center text-blue-800 mb-12 drop-shadow-md animate-fade-in">
+    🚀 Smart Task & Time Dashboard
+  </h1>
+
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+    {% for item in [
+      {"name": "Projects", "icon": "folder-kanban", "doctype": "Project"},
+      {"name": "Tasks", "icon": "check-square", "doctype": "Task"},
+      {"name": "Time Sheets", "icon": "clock", "doctype": "Time Sheet"},
+      {"name": "Time Logs", "icon": "calendar-clock", "doctype": "Time Log"},
+      {"name": "Offline Queue", "icon": "wifi-off", "doctype": "Offline Queue"},
+      {"name": "📈 Project Time Summary", "icon": "bar-chart", "report": "Project Time Summary"},
+      {"name": "👤 Time Per User", "icon": "users", "report": "Time Per User"},
+      {"name": "📋 Time Per Task", "icon": "list-checks", "report": "Time Per Task"},
+    ] %}
+    <div
+      class="glass-card cursor-pointer"
+      onclick="navigateTo('{{ item.get('doctype') or item.get('report') }}', '{{ 'report' if item.report else 'doctype' }}')"
+    >
+      <div class="flex items-center space-x-4 mb-2">
+        <i data-lucide="{{ item.icon }}" class="w-8 h-8 text-blue-700 animate-fade-up"></i>
+        <h2 class="text-2xl font-semibold text-blue-900">{{ item.name }}</h2>
+      </div>
+      <p class="text-gray-700 text-sm pl-12">
+        Open {{ 'Report' if item.report else 'Doctype' }}
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+  function navigateTo(name, type) {
+    if (type === 'doctype') {
+      window.location.href = `/app/${name.toLowerCase().replace(/ /g, "-")}`;
+    } else if (type === 'report') {
+      window.location.href = `/app/query-report/${name.replace(/ /g, "%20")}`;
+    }
+  }
+</script>
+
+<!-- Animations -->
+<style>
+  @keyframes fade-in {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-up {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in { animation: fade-in 0.6s ease-out both; }
+  .animate-fade-up { animation: fade-up 0.4s ease-out both; }
+</style>
+{% endblock %}
